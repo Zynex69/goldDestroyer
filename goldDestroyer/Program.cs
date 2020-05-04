@@ -16,6 +16,9 @@ namespace goldDestroyer
             Console.Write("Webhook: ");
             string webhook = Console.ReadLine();
 
+            Console.Write("Message: ");
+            string message = Console.ReadLine();
+
             Console.Write("Threads: ");
             string threadsString = Console.ReadLine();
 
@@ -23,19 +26,19 @@ namespace goldDestroyer
             Console.ForegroundColor = ConsoleColor.Yellow;
             for (int i=0; i<=(threads + 1); i++)
             {
-                Webhook(webhook);
+                Webhook(webhook, message);
                 Console.WriteLine("Message number [" + i + "] has been sent.");
             }
 
 
         }
 
-        public static void Webhook(string URL)
+        public static void Webhook(string URL, string MSG)
         {
             HttpClient client = new HttpClient();
             Dictionary<string, string> contents = new Dictionary<string, string>
                 {
-                    { "content", $"Get rekt faggot you should start crying now" },
+                    { "content", MSG },
                     { "username", "EUROPA Fucker" },
                     { "avatar_url", "https://cdn.discordapp.com/attachments/696080024742395914/705121650542379159/europa.jpg" }
                 };
