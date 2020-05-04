@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Net.Http;
 
 namespace goldDestroyer
@@ -24,10 +22,11 @@ namespace goldDestroyer
 
             int threads = Convert.ToInt32(threadsString);
             Console.ForegroundColor = ConsoleColor.Yellow;
-            for (int i=0; i<=(threads + 1); i++)
+            for (int i=0; i<threads; i++)
             {
                 Webhook(webhook, message);
                 Console.WriteLine("Message number [" + i + "] has been sent.");
+                Thread.Sleep(500);
             }
 
 
