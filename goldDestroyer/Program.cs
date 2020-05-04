@@ -21,21 +21,26 @@ namespace goldDestroyer
 
             int threads = Convert.ToInt32(threadsString);
             Console.ForegroundColor = ConsoleColor.Yellow;
-            for (int i=0; i<threads; i++)
+            for (int i=0; i<=(threads + 1); i++)
             {
-                HttpClient client = new HttpClient();
-                Dictionary<string, string> contents = new Dictionary<string, string>
+                Webhook(webhook);
+                Console.WriteLine("Message number [" + i + "] has been sent.");
+            }
+
+
+        }
+
+        public static void Webhook(string URL)
+        {
+            HttpClient client = new HttpClient();
+            Dictionary<string, string> contents = new Dictionary<string, string>
                 {
                     { "content", $"Get rekt faggot you should start crying now" },
                     { "username", "EUROPA Fucker" },
                     { "avatar_url", "https://cdn.discordapp.com/attachments/696080024742395914/705121650542379159/europa.jpg" }
                 };
 
-                client.PostAsync(webhook, new FormUrlEncodedContent(contents)).GetAwaiter().GetResult();
-                Console.WriteLine("Message number [" + i + "] has been sent.");
-            }
-
-
+            client.PostAsync(URL, new FormUrlEncodedContent(contents)).GetAwaiter().GetResult();
         }
     }
 }
