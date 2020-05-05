@@ -9,8 +9,26 @@ namespace goldDestroyer
     {
         static void Main(string[] args)
         {
+            string watermark = @"
+                                                                        
+@@@@@@@@  @@@  @@@  @@@@@@@    @@@@@@   @@@@@@@    @@@@@@   
+@@@@@@@@  @@@  @@@  @@@@@@@@  @@@@@@@@  @@@@@@@@  @@@@@@@@  
+@@!       @@!  @@@  @@!  @@@  @@!  @@@  @@!  @@@  @@!  @@@  
+!@!       !@!  @!@  !@!  @!@  !@!  @!@  !@!  @!@  !@!  @!@  
+@!!!:!    @!@  !@!  @!@!!@!   @!@  !@!  @!@@!@!   @!@!@!@!  
+!!!!!:    !@!  !!!  !!@!@!    !@!  !!!  !!@!!!    !!!@!!!!  
+!!:       !!:  !!!  !!: :!!   !!:  !!!  !!:       !!:  !!!  
+:!:       :!:  !:!  :!:  !:!  :!:  !:!  :!:       :!:  !:!  
+ :: ::::  ::::: ::  ::   :::  ::::: ::   ::       ::   :::  
+: :: ::    : :  :    :   : :   : :  :    :         :   : :  
+                                     webhook destroyer                       
+==========================================================
+                                         by goldblack
+
+            ";
             Console.Title = "goldDestroyer - Webhook Destroyer by goldblack";
             Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(watermark);
             Console.Write("Webhook: ");
             string webhook = Console.ReadLine();
 
@@ -21,8 +39,10 @@ namespace goldDestroyer
             string threadsString = Console.ReadLine();
 
             int threads = Convert.ToInt32(threadsString);
+
+            Console.WriteLine("");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            for (int i=0; i<threads; i++)
+            for (int i = 0; i < threads; i++)
             {
                 Webhook(webhook, message);
                 Console.WriteLine("Message number [" + i + "] has been sent.");
